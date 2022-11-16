@@ -3,23 +3,22 @@
 	import Background from './components/Background.svelte';
 	import Input from './components/Input.svelte';
 	import Selectoption from './components/Selectoption.svelte';
+	import Navbar from './components/Navbar.svelte';
+	import NavbarItem from './components/NavbarItem.svelte';
+	import NavbarDropDown from './components/NavbarDropDown.svelte';
 	let selected;
 </script>
 
 <div class="relative w-screen h-screen">
 	<Background theme="red-black" class="w-full h-full">
-		<nav class="tui-nav">
-			<ul>
-				<li class="tui-dropdown">
-					<span class="red-168-text">F</span>ile
-					<div class="tui-dropdown-content">
-						<ul>
-							<li><a href="#!"><span class="red-168-text">N</span>ew</a></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</nav>
+		<Navbar dropdown date>
+			<NavbarItem text="Archivo" />
+
+			<NavbarDropDown text="Buscar">
+				<NavbarItem text="Nombre" />
+				<NavbarItem text="Apellido" />
+			</NavbarDropDown>
+		</Navbar>
 		<div class="w-55vw tui-window h-70vh absolute-center ">
 			<fieldset class="tui-fieldset  h-inherit">
 				<legend class="center">Register</legend>
