@@ -1,5 +1,11 @@
 <script lang="ts">
+	/**
+	 * Texto que va en el titulo
+	 */
 	export let text = '';
+	/**
+	 * Link para donde va
+	 */
 	export let href = '';
 </script>
 

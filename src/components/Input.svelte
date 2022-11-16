@@ -19,8 +19,10 @@
 	export let cols = 4;
 	/**
 	 * Text Descriptive
+	 * TextSize = size of the text.. duhh??
 	 */
 	export let text = '';
+	export let textSize = 1;
 	/**
 	 * Bind the selected value from a <select>
 	 */
@@ -42,8 +44,8 @@
 <div {...$$props}>
 	{#if type === 'text'}
 		<label class="nathing">
-			{text}
-			<input disabled="{disabled}" class="tui-input" type="text" />
+			<span style="{`font-size:${textSize}vw`}"> {text}</span>
+			<input disabled="{disabled}" class="tui-input " type="text" />
 			<span></span>
 		</label>
 	{:else if type === 'checkbox'}
