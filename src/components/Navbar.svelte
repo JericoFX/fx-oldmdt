@@ -11,7 +11,6 @@
 			{#if dropdown}
 				<NavbarDropDown />
 			{/if}
-
 			{#if date}
 				<li>
 					<span class="tui-datetime absolute right-0" data-format="h:m:s a"></span>

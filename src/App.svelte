@@ -11,12 +11,11 @@
 
 <div class="relative w-screen h-screen">
 	<Background theme="red-black" class="w-full h-full">
-		<Navbar dropdown date>
-			<NavbarItem text="Archivo" />
-
-			<NavbarDropDown text="Buscar">
-				<NavbarItem text="Nombre" />
-				<NavbarItem text="Apellido" />
+		<Navbar dropdown>
+			<NavbarDropDown text="Archivo">
+				<NavbarItem text="Nuevo Reporte" />
+				<NavbarItem text="Abrir Reporte" />
+				<NavbarItem text="Buscar Reporte" />
 			</NavbarDropDown>
 		</Navbar>
 		<div class="w-55vw tui-window h-70vh absolute-center ">
