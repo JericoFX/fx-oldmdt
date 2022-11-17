@@ -26,6 +26,8 @@
 	/**
 	 * Bind the selected value from a <select>
 	 */
+
+	export let id = '';
 	export let select = undefined;
 
 	const selectedValue = writable(select);
@@ -50,14 +52,20 @@
 		</label>
 	{:else if type === 'checkbox'}
 		<label class="tui-checkbox">
-			<span style="{`font-size:${textSize}vw`}"> {text}</span>
-			<input class="tui-input h-3vh " type="checkbox" />
+			{text}
+			<input name="{id}" class="tui-input h-3vh " type="checkbox" />
 			<span></span>
 		</label>
 	{:else if type === 'textarea'}
 		<label class="tui-textarea">
 			<span style="{`font-size:${textSize}vw`}"> {text}</span>
 			<textarea rows="{rows}" cols="{cols}" class="tui-input"></textarea>
+			<span></span>
+		</label>
+	{:else if type === 'radio'}
+		<label class="tui-radio">
+			<span style="{`font-size:${textSize}vw`}"> {text}</span>
+			<input name="{id}" class="tui-radio h-3vh " type="checkbox" />
 			<span></span>
 		</label>
 	{:else if type === 'select'}

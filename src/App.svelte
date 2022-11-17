@@ -11,7 +11,13 @@
 	import Col from './components/Col.svelte';
 	import Window from './components/Window.svelte';
 	import Fieldset from './components/Fieldset.svelte';
+	import Checkbox from './components/Checkbox.svelte';
+	import Radio from './components/Radio.svelte';
+	import RadioGroup from './components/RadioGroup.svelte';
+	import CheckboxGroup from './components/CheckboxGroup.svelte';
 	let selected;
+	let g;
+	$: console.log(selected);
 </script>
 
 <div class="relative w-screen h-screen select-none">
@@ -24,24 +30,32 @@
 			</NavbarDropDown>
 			<NavbarItem text="Cerrar Reporte" />
 		</Navbar>
-		<Window width="{50}" height="{50}" center>
+		<Window width="{50}" height="{70}" center>
 			<Fieldset sharedBackground textSize="{2}" full title="Nuevo Reporte" centerText>
 				<table class="tui-table-grid w-full h-full">
 					<tbody>
 						<tr>
 							<td rowspan="2" width="70%" class="mt-3">
-								<Input class="mt-3" text="Nombre...........:" type="text" />
-								<Input class="mt-3" text="Apellido.........:" type="text" />
-								<Input class="mt-3" text="CID..............:" type="text" />
-								<Input class="mt-3" text="Trabajo..........:" type="text" />
-								<Input class="mt-3" text="Rango............:" type="text" />
-								<Input class="mt-3" text="Localizacion.....:" type="text" />
-								<Input class="mt-3" text="Observaciones....:" type="textarea" />
+								<br /><Input text="Nombre...........:" type="text" />
+								<br /><Input text="Apellido.........:" type="text" />
+								<br /><Input text="CID..............:" type="text" />
+								<br /><Input text="Trabajo..........:" type="text" />
+								<br /><Input text="Rango............:" type="text" />
+								<br /><Input text="Localizacion.....:" type="text" />
+								<br /><Input text="Observaciones....:" type="textarea" />
 							</td>
 							<td width="30%" height="15" class="center"> <span class="text-5"> Informacion de Usuario: por favor detalle con la mayor informacion posible los echos </span></td>
 						</tr>
 						<tr>
-							<td width="25"> ... </td>
+							<td width="25">
+								<CheckboxGroup bind:value={selected}>
+									<Checkbox text="Vermu" value="1" />
+									<Checkbox text="Vermu" value="12" />
+									<Checkbox text="Vermu" value="13" />
+									<Checkbox text="Vermu" value="14" />
+									<Checkbox text="Vermu" value="15" />
+								</CheckboxGroup>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="2" width="25" class="w-full h-4vh">
