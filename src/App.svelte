@@ -11,7 +11,6 @@
 	import Col from './components/Col.svelte';
 	import Window from './components/Window.svelte';
 	import Fieldset from './components/Fieldset.svelte';
-	import {text} from 'svelte/internal';
 	let selected;
 </script>
 
@@ -23,10 +22,41 @@
 				<NavbarItem text="Abrir Reporte" />
 				<NavbarItem text="Buscar Reporte" />
 			</NavbarDropDown>
+			<NavbarItem text="Cerrar Reporte" />
 		</Navbar>
-		<Window width="{70}" height="{70}" center>
-			<Fieldset sharedBackground textSize="{2}" full title="Registro Nuevo Reporte" centerText>
-				<Grid class="w-96% h-92%   absolute">
+		<Window width="{50}" height="{50}" center>
+			<Fieldset sharedBackground textSize="{2}" full title="Nuevo Reporte" centerText>
+				<table class="tui-table-grid w-full h-full">
+					<tbody>
+						<tr>
+							<td rowspan="2" width="70%" class="mt-3">
+								<Input class="mt-3" text="Nombre...........:" type="text" />
+								<Input class="mt-3" text="Apellido.........:" type="text" />
+								<Input class="mt-3" text="CID..............:" type="text" />
+								<Input class="mt-3" text="Trabajo..........:" type="text" />
+								<Input class="mt-3" text="Rango............:" type="text" />
+								<Input class="mt-3" text="Localizacion.....:" type="text" />
+								<Input class="mt-3" text="Observaciones....:" type="textarea" />
+							</td>
+							<td width="30%" height="15" class="center"> <span class="text-5"> Informacion de Usuario: por favor detalle con la mayor informacion posible los echos </span></td>
+						</tr>
+						<tr>
+							<td width="25"> ... </td>
+						</tr>
+						<tr>
+							<td colspan="2" width="25" class="w-full h-4vh">
+								<div class="flex flex-row w-full h-full justify-center gap-2 items-center">
+									<Button text="Crear Reporte" />
+									<Button text="Añadir Policias" colors="orange-168" />
+									<Button text="Añadir Pruebas" colors="purple-168" />
+									<Button text="Añadir Multas" colors="white-168" />
+									<Button text="Posicion Actual" colors="red-168" />
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- <Grid class="w-96% h-92%   absolute">
 					<Row>
 						<Col number="{12}">
 							<Input text="Nombre.....:" type="text" />
@@ -44,13 +74,13 @@
 							<Input text="Informacion.:" type="textarea" />
 						</Col>
 						<Col margin marginType="mt-2" number="{12}">
-							<Input bind:select="{selected}" text="Informacion.:" type="select">
+							<Input bind:select="{selected}" text="Vehiculo....:" type="select">
 								<Selectoption text="Algo" value="15" />
 								<Selectoption text="AlgoMas" value="152" />
 							</Input>
 						</Col>
 					</Row>
-				</Grid>
+				</Grid> -->
 			</Fieldset>
 		</Window>
 		<!-- <div class="w-55vw tui-window h-70vh absolute-center ">

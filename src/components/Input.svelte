@@ -22,7 +22,7 @@
 	 * TextSize = size of the text.. duhh??
 	 */
 	export let text = '';
-	export let textSize = 1;
+	export let textSize = 1.5;
 	/**
 	 * Bind the selected value from a <select>
 	 */
@@ -45,24 +45,24 @@
 	{#if type === 'text'}
 		<label class="nathing">
 			<span style="{`font-size:${textSize}vw`}"> {text}</span>
-			<input disabled="{disabled}" class="tui-input " type="text" />
+			<input disabled="{disabled}" class="tui-input h-3vh " type="text" />
 			<span></span>
 		</label>
 	{:else if type === 'checkbox'}
 		<label class="tui-checkbox">
-			{text}
-			<input type="checkbox" />
+			<span style="{`font-size:${textSize}vw`}"> {text}</span>
+			<input class="tui-input h-3vh " type="checkbox" />
 			<span></span>
 		</label>
 	{:else if type === 'textarea'}
 		<label class="tui-textarea">
-			{text}
+			<span style="{`font-size:${textSize}vw`}"> {text}</span>
 			<textarea rows="{rows}" cols="{cols}" class="tui-input"></textarea>
 			<span></span>
 		</label>
 	{:else if type === 'select'}
 		<label>
-			{text}
+			<span style="{`font-size:${textSize}vw`}"> {text}</span>
 			<select on:change="{handleChange}" class="tui-input">
 				<slot />
 			</select>
