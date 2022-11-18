@@ -15,3 +15,5 @@ export {default as Selectoption} from './Selectoption.svelte';
 export {default as Window} from './Window.svelte';
 export {default as Fieldset} from './Fieldset.svelte';
 export {default as Modal} from './Modal.svelte';
+export {default as Screen} from './Screen.svelte';
+export {default as Shortcut} from './Shortcut.svelte';
