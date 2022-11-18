@@ -55,7 +55,6 @@
 									<Button text="Añadir Policias" colors="orange-168" />
 									<Button text="Añadir Pruebas" colors="purple-168" />
 									<Button text="Añadir Multas" colors="white-168" />
-									<Button text="Añadir Vehiculo" colors="yellow-168" />
 									<Button text="Posicion Actual" colors="red-168" />
 								</div>
 							</td>
@@ -95,7 +94,7 @@
 			<slot class="h-full w-full">
 				<p class="">Reporte Creado</p>
 				<div class="bottom-2 absolute w-full flex justify-around items-center">
-					<Button on:click="{() => (openModal = false)}" text="Crear" colors="white-168" />
+					<Button disabled on:click="{() => (openModal = false)}" text="Crear" colors="white-168" />
 				</div>
 			</slot>
 		</Panel>
