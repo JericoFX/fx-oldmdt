@@ -4,6 +4,9 @@
 	const dispatch = createEventDispatcher();
 	export let value = undefined;
 	export let checked = false;
+	export let legend = false;
+	export let legendText = '';
+	export let center = false;
 	const selectedValue = writable(value);
 	setContext('CheckboxGroup', {
 		selectedValue,
@@ -30,5 +33,8 @@
 </script>
 
 <fieldset class="tui-input-fieldset">
+	{#if legend}
+		<legend class:center>{legendText}</legend>
+	{/if}
 	<slot />
 </fieldset>

@@ -1,23 +1,11 @@
 <script lang="ts">
-	import Button from './components/Button.svelte';
-	import Background from './components/Background.svelte';
-	import Input from './components/Input.svelte';
-	import Selectoption from './components/Selectoption.svelte';
-	import Navbar from './components/Navbar.svelte';
-	import NavbarItem from './components/NavbarItem.svelte';
-	import NavbarDropDown from './components/NavbarDropDown.svelte';
-	import Grid from './components/Grid.svelte';
-	import Row from './components/Row.svelte';
-	import Col from './components/Col.svelte';
-	import Window from './components/Window.svelte';
-	import Fieldset from './components/Fieldset.svelte';
-	import Checkbox from './components/Checkbox.svelte';
-	import Radio from './components/Radio.svelte';
-	import RadioGroup from './components/RadioGroup.svelte';
-	import CheckboxGroup from './components/CheckboxGroup.svelte';
+	import {Button, Background, Input, Navbar, NavbarDropDown, NavbarItem, Window, Fieldset, CheckboxGroup, Checkbox} from './components';
+	import Modal from './components/Modal.svelte';
+	import Panel from './components/Panel.svelte';
 	let selected;
 	let g;
-	$: console.log(selected);
+	let placa = false;
+	let openModal = false;
 </script>
 
 <div class="relative w-screen h-screen select-none">
@@ -42,13 +30,17 @@
 								<br /><Input text="Trabajo..........:" type="text" />
 								<br /><Input text="Rango............:" type="text" />
 								<br /><Input text="Localizacion.....:" type="text" />
+								<br /><Checkbox textSize="{1.5}" bind:checked="{placa}" text="Vehiculo.......:" value="1" />
+								{#if placa}
+									<br /><Input disabled="{!placa}" text="Placa............:" type="text" />
+								{/if}
 								<br /><Input text="Observaciones....:" type="textarea" />
 							</td>
 							<td width="30%" height="15" class="center"> <span class="text-5"> Informacion de Usuario: por favor detalle con la mayor informacion posible los echos </span></td>
 						</tr>
 						<tr>
 							<td width="25">
-								<CheckboxGroup bind:value={selected}>
+								<CheckboxGroup legend center legendText="Toma" bind:value="{selected}">
 									<Checkbox text="Vermu" value="1" />
 									<Checkbox text="Vermu" value="12" />
 									<Checkbox text="Vermu" value="13" />
@@ -60,105 +52,58 @@
 						<tr>
 							<td colspan="2" width="25" class="w-full h-4vh">
 								<div class="flex flex-row w-full h-full justify-center gap-2 items-center">
-									<Button text="Crear Reporte" />
 									<Button text="Añadir Policias" colors="orange-168" />
 									<Button text="Añadir Pruebas" colors="purple-168" />
 									<Button text="Añadir Multas" colors="white-168" />
+									<Button text="Añadir Vehiculo" colors="yellow-168" />
 									<Button text="Posicion Actual" colors="red-168" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" width="25" height="15" class="w-full h-4vh">
+								<div class="flex flex-row w-full h-full justify-center gap-2 items-center">
+									<Button text="Crear Reporte" on:click="{() => (openModal = true)}" colors="green-168" />
+									<span class="tui-divider cyan-255-border"></span>
+									<Button text="Cancelar Reporte" colors="red-168" />
 								</div>
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				<!-- <Grid class="w-96% h-92%   absolute">
-					<Row>
-						<Col number="{12}">
-							<Input text="Nombre.....:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="Apellido...:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="CID........:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="Ubicacion..:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="Informacion.:" type="textarea" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input bind:select="{selected}" text="Vehiculo....:" type="select">
-								<Selectoption text="Algo" value="15" />
-								<Selectoption text="AlgoMas" value="152" />
-							</Input>
-						</Col>
-					</Row>
-				</Grid> -->
 			</Fieldset>
 		</Window>
-		<!-- <div class="w-55vw tui-window h-70vh absolute-center ">
-			<fieldset class="tui-fieldset  h-inherit">
-				<legend class="center">Register</legend>
-				<button class="tui-fieldset-button tui-bg-green-black left"><span class="red-255-text">■</span></button>
-				<button class="tui-fieldset-button tui-bg-green-black"><span class="red-255-text">↕</span></button>
-				<Grid class="w-96% h-92%   absolute">
-					<Row>
-						<Col number="{12}">
-							<Input text="Nombre.....:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="Apellido...:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="CID........:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="Ubicacion..:" type="text" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input text="Informacion:" type="textarea" />
-						</Col>
-						<Col margin marginType="mt-2" number="{12}">
-							<Input bind:select="{selected}" text="Informacion:" type="select">
-								<Selectoption text="Algo" value="15" />
-								<Selectoption text="AlgoMas" value="152" />
-							</Input>
-						</Col>
-					</Row>
-				</Grid>
-				 <div class="content w-96% h-92%   absolute">
-					<div class="row">
-						<div class="col s12 l12">
-							<Input text="Nombre.....:" type="text" />
-						</div>
-						<div class="col s12 l12 mt-2">
-							<Input text="Apellido...:" type="text" />
-						</div>
-						<div class="col s12 l12 mt-2">
-							<Input text="CID........:" type="text" />
-						</div>
-						<div class="col s12 l12 mt-2">
-							<Input text="Ubicacion..:" type="text" />
-						</div>
-						<div class="col s12 l12 mt-2">
-							<Input text="Informacion:" type="textarea" />
-						</div>
-						<div class="col s12 l12 mt-2">
-							<Input bind:select="{selected}" text="Informacion:" type="select">
-								<Selectoption text="Algo" value="15" />
-								<Selectoption text="AlgoMas" value="152" />
-							</Input>
-						</div>
-					</div>
-				</div> 
-			</fieldset>
-		</div> -->
+		<!-- <Modal class="w-30vw h-15vh" fieldset legendText="HI" id="jerico" open="{openModal}">
+			<div class="center">
+				<p>¿Esta seguro que desea crear el reporte?</p>
+			</div>
+			<div class="absolute bottom-2 w-full flex justify-center gap-15 items-center">
+				<Button class="text-white" on:click="{() => (openModal = false)}" text="Crear" colors="blue-168" />
+				<Button on:click="{() => (openModal = false)}" text="Cancelar" colors="cyan-168" />
+			</div>
+		</Modal> -->
+		<!-- <Panel open="{openModal}" title="Jerico" class="w-35vw h-15vh absolute-center">
+			<slot class="h-full w-full">
+				<p class="">Decea crear el reporte?</p>
+				<div class="bottom-1 absolute w-full flex justify-around items-center">
+					<Button on:click="{() => (openModal = false)}" text="Crear" colors="white-168" />
+					<Button disabled on:click="{() => (openModal = false)}" text="Cerrar" colors="white-168" />
+				</div>
+			</slot>
+		</Panel> -->
+		<Panel open="{openModal}" title="Exito" class="w-15vw h-13vh absolute-center">
+			<slot class="h-full w-full">
+				<p class="">Reporte Creado</p>
+				<div class="bottom-2 absolute w-full flex justify-around items-center">
+					<Button on:click="{() => (openModal = false)}" text="Crear" colors="white-168" />
+				</div>
+			</slot>
+		</Panel>
 	</Background>
 </div>
 
 <style>
 	* {
-		font-family: 'DOS';
+		font-family: 'Lucida Console';
 	}
 </style>

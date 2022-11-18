@@ -23,6 +23,7 @@
 	 */
 	export let text = '';
 	export let textSize = 1.5;
+	export let textwidth = 15;
 	/**
 	 * Bind the selected value from a <select>
 	 */
@@ -47,7 +48,7 @@
 	{#if type === 'text'}
 		<label class="nathing">
 			<span style="{`font-size:${textSize}vw`}"> {text}</span>
-			<input disabled="{disabled}" class="tui-input h-3vh " type="text" />
+			<input disabled="{disabled}" style="{`width:${textwidth}vw`}" class="tui-input h-3vh " type="text" />
 			<span></span>
 		</label>
 	{:else if type === 'checkbox'}
@@ -59,7 +60,7 @@
 	{:else if type === 'textarea'}
 		<label class="tui-textarea">
 			<span style="{`font-size:${textSize}vw`}"> {text}</span>
-			<textarea rows="{rows}" cols="{cols}" class="tui-input"></textarea>
+			<textarea style="{`width:${textwidth}vw`}" rows="{rows}" cols="{cols}" class="tui-input"></textarea>
 			<span></span>
 		</label>
 	{:else if type === 'radio'}

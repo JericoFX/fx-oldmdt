@@ -15,12 +15,12 @@
 </script>
 
 <label class="tui-checkbox">
-	<div class="{`ml-2`}" style="{`font-size:${textSize}vw`}">{text}</div>
+	<div class="{`ml-2 ${$$props.class}`}" style="{`font-size:${textSize}vw`}">{text}</div>
 	<input
 		id="{id}"
 		name="{id}"
 		value="{value}"
-		checked="{checked}"
+		bind:checked
 		class="tui-input "
 		type="checkbox"
 		on:change="{() => {
