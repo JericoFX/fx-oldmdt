@@ -2,6 +2,7 @@
 	import {Button, Background, Input, Navbar, NavbarDropDown, NavbarItem, Window, Fieldset, CheckboxGroup, Checkbox} from './components';
 	import Modal from './components/Modal.svelte';
 	import Panel from './components/Panel.svelte';
+	import Screen from './components/Screen.svelte';
 	let selected;
 	let g;
 	let placa = false;
@@ -9,7 +10,12 @@
 </script>
 
 <div class="relative w-screen h-screen select-none">
-	<Background theme="red-black" class="w-full h-full">
+	<Screen large center>
+		<div class="title w-full  absolute top-0 h-3vh white-168">
+			<span class="flex justify-center items-center text-1.5vw  w-full h-full text-white">Mobile Data Transit</span>
+		</div>
+	</Screen>
+	<!-- <Background theme="red-black" class="w-full h-full">
 		<Navbar dropdown>
 			<NavbarDropDown text="Archivo">
 				<NavbarItem text="Nuevo Reporte" />
@@ -72,33 +78,8 @@
 				</table>
 			</Fieldset>
 		</Window>
-		<!-- <Modal class="w-30vw h-15vh" fieldset legendText="HI" id="jerico" open="{openModal}">
-			<div class="center">
-				<p>¿Esta seguro que desea crear el reporte?</p>
-			</div>
-			<div class="absolute bottom-2 w-full flex justify-center gap-15 items-center">
-				<Button class="text-white" on:click="{() => (openModal = false)}" text="Crear" colors="blue-168" />
-				<Button on:click="{() => (openModal = false)}" text="Cancelar" colors="cyan-168" />
-			</div>
-		</Modal> -->
-		<!-- <Panel open="{openModal}" title="Jerico" class="w-35vw h-15vh absolute-center">
-			<slot class="h-full w-full">
-				<p class="">Decea crear el reporte?</p>
-				<div class="bottom-1 absolute w-full flex justify-around items-center">
-					<Button on:click="{() => (openModal = false)}" text="Crear" colors="white-168" />
-					<Button disabled on:click="{() => (openModal = false)}" text="Cerrar" colors="white-168" />
-				</div>
-			</slot>
-		</Panel> -->
-		<Panel open="{openModal}" title="Exito" class="w-15vw h-13vh absolute-center">
-			<slot class="h-full w-full">
-				<p class="">Reporte Creado</p>
-				<div class="bottom-2 absolute w-full flex justify-around items-center">
-					<Button disabled on:click="{() => (openModal = false)}" text="Crear" colors="white-168" />
-				</div>
-			</slot>
-		</Panel>
-	</Background>
+
+	</Background> -->
 </div>
 
 <style>
