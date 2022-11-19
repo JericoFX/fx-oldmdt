@@ -27,6 +27,6 @@
 	let cnt = center ? 'absolute-center' : '';
 </script>
 
-<div class="{`${sm} ${md} ${lg} bordered ${cnt} ${$$props.class} tui-bg-blue-black`}">
+<div class="{`${sm} ${md} ${lg} bordered shadow ${cnt} ${$$props.class} tui-bg-blue-black`}">
 	<slot />
 </div>

@@ -23,9 +23,7 @@
 	export let sharedBackground = false;
 </script>
 
-
 <fieldset class="{`tui-fieldset absolute ${$$props.class} ${sharedBackground ? `tui-bg-${background}` : ''} ${full ? 'w-full h-full' : ''} `}">
-	<button class="tui-fieldset-button"><span class="green-255-text">Search</span></button>
 	<legend class="{`${centerText ? 'center' : ''}`}" style="{`font-size:${textSize}vw`}">{title}</legend>
 
 	<slot />
