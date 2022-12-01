@@ -16,7 +16,8 @@
 
 <li>
 	<!-- svelte-ignore a11y-missing-attribute -->
-	<a on:click class="mt-1">
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<a on:click on:keydown on:keyup on:keypress class="mt-1">
 		<span {...$$props} class="mt-2"><span class="red-168-text">{text.slice(0, 1)}</span>{text.slice(1, 15)}</span>
 		{#if shortcut}
 			<Shortcut text="{shortcutText}" />

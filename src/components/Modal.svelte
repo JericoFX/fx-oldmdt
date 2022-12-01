@@ -1,13 +1,22 @@
 <script lang="ts">
+	import {onDestroy, onMount} from 'svelte';
+
 	export let color: 'red-168' | 'blue-168' = 'red-168';
 	export let fieldset = false;
 	export let legendText = '';
 	export let id = ' ';
-	export let open = true;
+	export let open = false;
+
+	onMount(() => {
+		console.log('Created');
+	});
+	// $: if (open) {
+	// 	document.createElement('div');
+	// }
 </script>
 
 {#if open}
-	<div class="tui-overlap absolute-center "></div>
+	<div class="tui-overlap "></div>
 	<div id="{id}" class="{`tui-modal absolute-center ${$$props.class}`}">
 		<div class="{`tui-window absolute-center ${$$props.class}  ${color}`}">
 			{#if fieldset}

@@ -42,13 +42,14 @@
 		let value = target.value;
 		selectedValue.set(value);
 	};
+	export let value = '';
 </script>
 
 <div {...$$props}>
 	{#if type === 'text'}
 		<label class="nathing">
 			<span style="{`font-size:${textSize}vw`}"> {text}</span>
-			<input disabled="{disabled}" style="{`width:${textwidth}vw`}" class="tui-input h-3vh " type="text" />
+			<input class:disabled bind:value disabled="{disabled}" style="{`width:${textwidth}vw`}" class="tui-input h-3vh " type="text" />
 			<span></span>
 		</label>
 	{:else if type === 'checkbox'}
@@ -60,7 +61,7 @@
 	{:else if type === 'textarea'}
 		<label class="tui-textarea">
 			<span style="{`font-size:${textSize}vw`}"> {text}</span>
-			<textarea style="{`width:${textwidth}vw`}" rows="{rows}" cols="{cols}" class="tui-input"></textarea>
+			<textarea bind:value style="{`width:${textwidth}vw`}" rows="{rows}" cols="{cols}" class="tui-input"></textarea>
 			<span></span>
 		</label>
 	{:else if type === 'radio'}
@@ -82,5 +83,10 @@
 <style>
 	textarea {
 		resize: none;
+	}
+	.disabled {
+		border: 1px solid #080808;
+		background-color: #000000;
+		color: #090808;
 	}
 </style>
